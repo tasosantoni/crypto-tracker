@@ -1,0 +1,23 @@
+.mat-icon{
+    vertical-align:sub;
+}
+
+.mat-toolbar{
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#title{
+    margin-right: 25px;
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#logout{
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+}
