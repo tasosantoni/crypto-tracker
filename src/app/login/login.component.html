@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
-    <a mat-button (click)="reloadPage()" id="title"><mat-icon>currency_bitcoin</mat-icon> Crypto Tracker</a>
-    <a mat-button routerLink="/signup" id="signup"><mat-icon>person_add</mat-icon> Sign Up</a>
+    <a mat-button (click)="reloadPage()" id="title"><b>Crypto</b>Tracker</a>
+    <a mat-raised-button color="accent" routerLink="/signup" id="signup"><mat-icon>person_add</mat-icon> Sign Up</a>
 </mat-toolbar>
 
 <div class="login-container">
@@ -10,10 +10,10 @@
             <h1>Login Here</h1>
             <p>You don't have an account? <a routerLink="/signup">Sign Up</a></p>
         </div>
-        <form class="form-group" [formGroup]="loginForm">
-            <input name="email" type="email" formControlName="email" placeholder="Email" aria-autocomplete="none">
-            <input type="password" formControlName="password" placeholder="Password" autocomplete="new-password">
-            <button (click)="onSubmit()">Log In</button>
+        <form class="form-group" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <input name="email" type="email" required formControlName="email" placeholder="Email" aria-autocomplete="none">
+            <input type="password" required formControlName="password" placeholder="Password" autocomplete="new-password">
+            <button type="submit">Log In</button>
         </form>
     
     </div>

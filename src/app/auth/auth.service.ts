@@ -36,8 +36,6 @@ export class AuthService {
 
       if(isUserPresent != undefined) {
         localStorage.setItem('authUser', JSON.stringify(isUserPresent));
-      } else {
-        alert("Wrong email or password!")
       }
     }
 
@@ -55,4 +53,13 @@ export class AuthService {
 
   }
 
+  getAuthUserName():String{
+    const authUser =  localStorage.getItem('authUser');
+    let user = [];
+    
+    if(authUser != null) {
+      user =  JSON.parse(authUser);
+    }
+    return user.name;
+  }
 }

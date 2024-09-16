@@ -5,11 +5,12 @@ import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatIconModule} from '@angular/material/icon'
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterModule, MatToolbarModule, MatIconModule],
+  imports: [ReactiveFormsModule, RouterModule, MatToolbarModule, MatIconModule, MatButtonModule],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.scss'
 })
@@ -39,6 +40,9 @@ export class SignupComponent {
       this.authService.signup(this.signupForm.value);
       
       this.router.navigate(['/login']);
+    }else{
+
+      alert("Check your email or password length!")
     }
   }
 

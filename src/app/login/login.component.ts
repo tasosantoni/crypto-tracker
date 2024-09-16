@@ -5,11 +5,12 @@ import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatIconModule} from '@angular/material/icon'
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterModule, MatToolbarModule, MatIconModule],
+  imports: [ReactiveFormsModule, RouterModule, MatToolbarModule, MatIconModule, MatButtonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -43,8 +44,12 @@ export class LoginComponent {
 
         this.router.navigate(['/home']);
 
+      }else{
+        alert("Wrong email or password!");
       }
 
+    }else{
+      alert("Wrong email or password!");
     }
   }
 
