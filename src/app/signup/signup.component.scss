@@ -4,8 +4,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #d4effa;
+    background-color: cornflowerblue;
 }
+
+.spacer {
+    flex: 1 1 auto;
+  }
 
 #title{
     font-size: large;

@@ -1,5 +1,6 @@
 <mat-toolbar color="primary">
     <a mat-button (click)="reloadPage()" id="title"><b>Crypto</b>Tracker</a>
+    <span class="spacer"></span>
     <a mat-raised-button color="accent" routerLink="/login" id="login"><mat-icon>login</mat-icon> Log In</a>
 </mat-toolbar>
 
@@ -13,9 +14,9 @@
             </p>
         </div>
         <form class="form-group" autocomplete="off" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-            <input type="text" name="name" required placeholder="Name" formControlName="name" aria-autocomplete="none">
-            <input type="email" name="email" required placeholder="Email" formControlName="email" aria-autocomplete="none">
-            <input type="password" name="password" pattern=".{8,}" required placeholder="Password (at least 8 characters)" formControlName="password" autocomplete="new-password">
+            <input type="text" name="name"  maxlength="10" required placeholder="Name (max. 10 characters)" formControlName="name" aria-autocomplete="none">
+            <input type="email" name="email" maxlength="100" required placeholder="Email" formControlName="email" aria-autocomplete="none">
+            <input type="password" name="password" pattern=".{8,}" maxlength="30"  required placeholder="Password (min. 8 characters)" formControlName="password" autocomplete="new-password">
             <input type="submit" value="Sign Up">
         </form>
     </div>

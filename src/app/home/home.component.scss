@@ -9,6 +9,19 @@
     align-items: center;
 }
 
+.spacer {
+  flex: 1 1 auto;
+}
+
+.search-container{
+  text-align: center;
+  background-color: cornflowerblue;
+}
+
+.search-coin{
+  margin-top: 25px;
+}
+
 #title{
     font-size: small;
     color: #ffffff;
@@ -22,4 +35,57 @@
 #logout{
     font-size: small;
     color: #ffffff;
+}
+
+.table-container{
+  display: flex;
+  justify-content: center;
+  background-color: cornflowerblue;
+}
+
+.example-container {
+    height:82vh;
+    width: 800px;
+    max-width: 100%;
+    overflow: auto;
+}
+  
+table {
+    width:800px;
+}
+  
+th.mat-column-position, td.mat-column-position {
+    padding-left: 3px;
+}
+  
+.mat-mdc-table-sticky-border-elem-right {
+    border-left: 1px solid #e0e0e0;
+}
+  
+.mat-mdc-table-sticky-border-elem-left {
+    border-right: 1px solid #e0e0e0;
+}
+
+.coin-icon{
+    width: 20px;
+    height: 20px;
+    vertical-align: sub;
+    margin-right: 5px;
+}
+
+.color-red{
+    color: red;
+}
+
+.color-green{
+    color: green;
+}
+
+@media (max-width: 600px){
+  table {
+    width:500px;
+  }
+  .example-container{
+    width:500px;
+  }
 }

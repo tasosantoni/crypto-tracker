@@ -1,5 +1,65 @@
 <mat-toolbar color="primary">
     <a mat-button (click)="reloadPage()" id="title"><b>Crypto</b>Tracker</a>
+    <span class="spacer"></span>
     <a mat-button id="username"><mat-icon>person</mat-icon>{{username}}</a>
+    <span class="spacer"></span>
     <a mat-raised-button color="accent" (click)="logout()" id="logout"><mat-icon>logout</mat-icon> Log Out</a>
 </mat-toolbar>
+
+<div class="search-container">
+  <form [formGroup]="coinSearchForm" (ngSubmit)="searchCoin()">
+    <mat-form-field class="search-coin" appearance="fill">
+      <mat-label>Search coin...</mat-label>
+      <input matInput type="text" [(ngModel)]="searchName" formControlName="searchName">
+    </mat-form-field>
+  </form>
+</div>
+
+<div class="table-container">
+    <section class="example-container mat-elevation-z8" tabindex="0">
+        <table mat-table [dataSource]="dataSource">
+      
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="symbol" sticky>
+            <th mat-header-cell *matHeaderCellDef> Symbol </th>
+            <td mat-cell *matCellDef="let element">
+            <img class="coin-icon" [ngSrc]="element.iconUrl" width="20" height="20">
+            <span style="color: {{element.color}}">{{element.symbol}}</span> </td>
+          </ng-container>
+      
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+
+          <!-- Change Column -->
+          <ng-container matColumnDef="change">
+            <th mat-header-cell *matHeaderCellDef> Daily Change </th>
+            <td mat-cell [ngClass]="{'color-red': element.change < 0, 'color-green': element.change > 0}" *matCellDef="let element"> {{element.change | number: '1.0-2'}}% </td>
+          </ng-container>
+      
+          <!-- Price Column -->
+          <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef> Price </th>
+            <td mat-cell *matCellDef="let element"> {{element.price | currency:'USD':'symbol':'1.0-10'}} </td>
+          </ng-container>
+
+          <!-- Market Cap Column -->
+          <ng-container matColumnDef="marketCap">
+            <th mat-header-cell *matHeaderCellDef> Market Cap </th>
+            <td mat-cell *matCellDef="let element"> {{element.marketCap | currency:'USD':'symbol':'1.0-3'}} </td>
+          </ng-container>
+
+          <!-- Rank Column -->
+          <ng-container matColumnDef="rank">
+            <th mat-header-cell *matHeaderCellDef> Rank </th>
+            <td mat-cell *matCellDef="let element"> {{element.rank}} </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </section>
+      
+</div>
